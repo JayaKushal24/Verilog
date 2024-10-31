@@ -1,0 +1,143 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d16866e8a0 .scope module, "comparator_4bit_tb" "comparator_4bit_tb" 2 26;
+ .timescale 0 0;
+v000001d168594ee0_0 .var "a", 3 0;
+v000001d168594940_0 .net "a_eq_b", 0 0, L_000001d16858bf90;  1 drivers
+v000001d1685943a0_0 .net "a_gt_b", 0 0, L_000001d16858bc80;  1 drivers
+v000001d168594620_0 .net "a_lt_b", 0 0, L_000001d16858ba50;  1 drivers
+v000001d1685948a0_0 .var "b", 3 0;
+S_000001d16866ea30 .scope module, "comp" "comparator_4bit" 2 29, 2 11 0, S_000001d16866e8a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /OUTPUT 1 "a_gt_b";
+    .port_info 3 /OUTPUT 1 "a_eq_b";
+    .port_info 4 /OUTPUT 1 "a_lt_b";
+L_000001d16858c150 .functor AND 1, v000001d168594da0_0, v000001d16866ebc0_0, C4<1>, C4<1>;
+L_000001d16858bc80 .functor OR 1, v000001d168594d00_0, L_000001d16858c150, C4<0>, C4<0>;
+L_000001d16858bf90 .functor AND 1, v000001d168594da0_0, v000001d1685628d0_0, C4<1>, C4<1>;
+L_000001d16858c000 .functor AND 1, v000001d168594da0_0, v000001d16866ec60_0, C4<1>, C4<1>;
+L_000001d16858ba50 .functor OR 1, v000001d1685946c0_0, L_000001d16858c000, C4<0>, C4<0>;
+v000001d168593fe0_0 .net *"_ivl_14", 0 0, L_000001d16858c000;  1 drivers
+v000001d168594440_0 .net *"_ivl_8", 0 0, L_000001d16858c150;  1 drivers
+v000001d168594580_0 .net "a", 3 0, v000001d168594ee0_0;  1 drivers
+v000001d168594260_0 .net "a_eq_b", 0 0, L_000001d16858bf90;  alias, 1 drivers
+v000001d168594e40_0 .net "a_gt_b", 0 0, L_000001d16858bc80;  alias, 1 drivers
+v000001d168594bc0_0 .net "a_lt_b", 0 0, L_000001d16858ba50;  alias, 1 drivers
+v000001d168594760_0 .net "b", 3 0, v000001d1685948a0_0;  1 drivers
+v000001d168594c60_0 .net "lsb_eq", 0 0, v000001d1685628d0_0;  1 drivers
+v000001d168594120_0 .net "lsb_gt", 0 0, v000001d16866ebc0_0;  1 drivers
+v000001d1685941c0_0 .net "lsb_lt", 0 0, v000001d16866ec60_0;  1 drivers
+v000001d168594300_0 .net "msb_eq", 0 0, v000001d168594da0_0;  1 drivers
+v000001d168594080_0 .net "msb_gt", 0 0, v000001d168594d00_0;  1 drivers
+v000001d168594800_0 .net "msb_lt", 0 0, v000001d1685946c0_0;  1 drivers
+L_000001d1685949e0 .part v000001d168594ee0_0, 2, 2;
+L_000001d168594a80 .part v000001d1685948a0_0, 2, 2;
+L_000001d168594b20 .part v000001d168594ee0_0, 0, 2;
+L_000001d1685ef750 .part v000001d1685948a0_0, 0, 2;
+S_000001d168596780 .scope module, "lsb_comparator" "comparator_2bit" 2 17, 2 2 0, S_000001d16866ea30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "a";
+    .port_info 1 /INPUT 2 "b";
+    .port_info 2 /OUTPUT 1 "a_gt_b";
+    .port_info 3 /OUTPUT 1 "a_eq_b";
+    .port_info 4 /OUTPUT 1 "a_lt_b";
+v000001d168562c80_0 .net "a", 1 0, L_000001d168594b20;  1 drivers
+v000001d1685628d0_0 .var "a_eq_b", 0 0;
+v000001d16866ebc0_0 .var "a_gt_b", 0 0;
+v000001d16866ec60_0 .var "a_lt_b", 0 0;
+v000001d16858cb30_0 .net "b", 1 0, L_000001d1685ef750;  1 drivers
+E_000001d1685866e0 .event anyedge, v000001d168562c80_0, v000001d16858cb30_0;
+S_000001d168596910 .scope module, "msb_comparator" "comparator_2bit" 2 16, 2 2 0, S_000001d16866ea30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "a";
+    .port_info 1 /INPUT 2 "b";
+    .port_info 2 /OUTPUT 1 "a_gt_b";
+    .port_info 3 /OUTPUT 1 "a_eq_b";
+    .port_info 4 /OUTPUT 1 "a_lt_b";
+v000001d16858cbd0_0 .net "a", 1 0, L_000001d1685949e0;  1 drivers
+v000001d168594da0_0 .var "a_eq_b", 0 0;
+v000001d168594d00_0 .var "a_gt_b", 0 0;
+v000001d1685946c0_0 .var "a_lt_b", 0 0;
+v000001d1685944e0_0 .net "b", 1 0, L_000001d168594a80;  1 drivers
+E_000001d1685867a0 .event anyedge, v000001d16858cbd0_0, v000001d1685944e0_0;
+    .scope S_000001d168596910;
+T_0 ;
+    %wait E_000001d1685867a0;
+    %load/vec4 v000001d1685944e0_0;
+    %load/vec4 v000001d16858cbd0_0;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %store/vec4 v000001d168594d00_0, 0, 1;
+    %load/vec4 v000001d16858cbd0_0;
+    %load/vec4 v000001d1685944e0_0;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %store/vec4 v000001d168594da0_0, 0, 1;
+    %load/vec4 v000001d16858cbd0_0;
+    %load/vec4 v000001d1685944e0_0;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %store/vec4 v000001d1685946c0_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000001d168596780;
+T_1 ;
+    %wait E_000001d1685866e0;
+    %load/vec4 v000001d16858cb30_0;
+    %load/vec4 v000001d168562c80_0;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %store/vec4 v000001d16866ebc0_0, 0, 1;
+    %load/vec4 v000001d168562c80_0;
+    %load/vec4 v000001d16858cb30_0;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %store/vec4 v000001d1685628d0_0, 0, 1;
+    %load/vec4 v000001d168562c80_0;
+    %load/vec4 v000001d16858cb30_0;
+    %cmp/u;
+    %flag_get/vec4 5;
+    %store/vec4 v000001d16866ec60_0, 0, 1;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_000001d16866e8a0;
+T_2 ;
+    %vpi_call 2 32 "$dumpfile", "comparator_4bit.vcd" {0 0 0};
+    %vpi_call 2 33 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001d16866e8a0 {0 0 0};
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001d168594ee0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000001d1685948a0_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v000001d168594ee0_0, 0, 4;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v000001d1685948a0_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v000001d168594ee0_0, 0, 4;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v000001d1685948a0_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v000001d168594ee0_0, 0, 4;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v000001d1685948a0_0, 0, 4;
+    %delay 10, 0;
+    %vpi_call 2 39 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Comp4b_fromComp2b.v";

@@ -1,0 +1,86 @@
+$date
+	Wed Oct 30 16:22:13 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module carry_lookahead_adder_tb $end
+$var wire 4 ! sum [3:0] $end
+$var wire 1 " cout $end
+$var reg 4 # a [3:0] $end
+$var reg 4 $ b [3:0] $end
+$var reg 1 % cin $end
+$scope module cla $end
+$var wire 4 & a [3:0] $end
+$var wire 4 ' b [3:0] $end
+$var wire 1 % cin $end
+$var wire 1 " cout $end
+$var wire 4 ( g [3:0] $end
+$var wire 4 ) p [3:0] $end
+$var wire 4 * sum [3:0] $end
+$var wire 4 + c [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+0%
+b0 $
+b0 #
+0"
+b0 !
+$end
+#10
+b1110 +
+b1000 !
+b1000 *
+b1 (
+b110 )
+b11 $
+b11 '
+b101 #
+b101 &
+#20
+1"
+b110 !
+b110 *
+b0 +
+b1000 (
+b1010 $
+b1010 '
+b1100 #
+b1100 &
+#30
+b1110 +
+b1110 !
+b1110 *
+b1111 (
+b0 )
+b1111 $
+b1111 '
+b1111 #
+b1111 &
+#40
+b0 !
+b0 *
+b0 (
+b1111 )
+b1111 +
+1%
+b110 $
+b110 '
+b1001 #
+b1001 &
+#50

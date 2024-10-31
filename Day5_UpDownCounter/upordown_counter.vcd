@@ -1,0 +1,156 @@
+$date
+	Thu Oct 31 18:16:55 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module upordown_counter_tb $end
+$var wire 4 ! Count [3:0] $end
+$var reg 1 " Clk $end
+$var reg 1 # UpOrDown $end
+$var reg 1 $ reset $end
+$scope module counter $end
+$var wire 1 " Clk $end
+$var wire 1 # UpOrDown $end
+$var wire 1 $ reset $end
+$var reg 4 % Count [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+1$
+1#
+0"
+b0 !
+$end
+#10
+0$
+#25
+b1 !
+b1 %
+1"
+#30
+0"
+#35
+b10 !
+b10 %
+1"
+#40
+0"
+#45
+b11 !
+b11 %
+1"
+#50
+0"
+#55
+b100 !
+b100 %
+1"
+#60
+0"
+#65
+b101 !
+b101 %
+1"
+#70
+0"
+#75
+b110 !
+b110 %
+1"
+#80
+0"
+#85
+b111 !
+b111 %
+1"
+#90
+0"
+#95
+b1000 !
+b1000 %
+1"
+#100
+0"
+#105
+b1001 !
+b1001 %
+1"
+#110
+0"
+#115
+b1010 !
+b1010 %
+1"
+#120
+0#
+0"
+#125
+b1001 !
+b1001 %
+1"
+#130
+0"
+#135
+b1000 !
+b1000 %
+1"
+#140
+0"
+#145
+b111 !
+b111 %
+1"
+#150
+0"
+#155
+b110 !
+b110 %
+1"
+#160
+0"
+#165
+b101 !
+b101 %
+1"
+#170
+0"
+#175
+b100 !
+b100 %
+1"
+#180
+0"
+#185
+b11 !
+b11 %
+1"
+#190
+0"
+#195
+b10 !
+b10 %
+1"
+#200
+0"
+#205
+b1 !
+b1 %
+1"
+#210
+0"
+#215
+b0 !
+b0 %
+1"
+#220
+0"

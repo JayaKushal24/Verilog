@@ -1,0 +1,111 @@
+$date
+	Thu Oct 31 18:04:36 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module comparator_4bit_tb $end
+$var wire 1 ! a_lt_b $end
+$var wire 1 " a_gt_b $end
+$var wire 1 # a_eq_b $end
+$var reg 4 $ a [3:0] $end
+$var reg 4 % b [3:0] $end
+$scope module comp $end
+$var wire 4 & a [3:0] $end
+$var wire 1 # a_eq_b $end
+$var wire 1 " a_gt_b $end
+$var wire 1 ! a_lt_b $end
+$var wire 4 ' b [3:0] $end
+$var wire 1 ( msb_lt $end
+$var wire 1 ) msb_gt $end
+$var wire 1 * msb_eq $end
+$var wire 1 + lsb_lt $end
+$var wire 1 , lsb_gt $end
+$var wire 1 - lsb_eq $end
+$scope module lsb_comparator $end
+$var wire 2 . a [1:0] $end
+$var wire 2 / b [1:0] $end
+$var reg 1 - a_eq_b $end
+$var reg 1 , a_gt_b $end
+$var reg 1 + a_lt_b $end
+$upscope $end
+$scope module msb_comparator $end
+$var wire 2 0 a [1:0] $end
+$var wire 2 1 b [1:0] $end
+$var reg 1 * a_eq_b $end
+$var reg 1 ) a_gt_b $end
+$var reg 1 ( a_lt_b $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 1
+b0 0
+b0 /
+b0 .
+1-
+0,
+0+
+1*
+0)
+0(
+b0 '
+b0 &
+b0 %
+b0 $
+1#
+0"
+0!
+$end
+#10
+1"
+0#
+0*
+1)
+1+
+0-
+b1 1
+b10 /
+b10 0
+b1 .
+b110 %
+b110 '
+b1001 $
+b1001 &
+#20
+1!
+0"
+1(
+0)
+0+
+1,
+b10 1
+b0 0
+b11 .
+b1010 %
+b1010 '
+b11 $
+b11 &
+#30
+0!
+1#
+1-
+0,
+0(
+1*
+b11 1
+b11 /
+b11 0
+b1111 %
+b1111 '
+b1111 $
+b1111 &
+#40
