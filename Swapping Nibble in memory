@@ -1,0 +1,80 @@
+module top_module(
+    input clk,
+    input en,
+    input sw,
+    output reg [7:0] data_out1,
+    output reg [7:0] data_out2
+
+);
+    reg [2:0] addr;
+    reg mode;
+    wire [7:0] data_m1, data_m2;
+    rom_m1 M1(.clk(clk), .addr(addr), .data_out(data_m1), .en(1'b1));
+    rom_m2 M2(.clk(clk), .addr(addr), .data_out(data_m2), .en(1'b1));
+    always @(posedge clk) begin
+        if (en)
+            addr <= addr + 1;
+    end
+    always @(posedge clk) begin
+        if (addr == 4) begin
+            mode <= ~mode;
+        end
+    end
+    always @(posedge clk) begin
+        if (sw) begin
+            data_out1 <= data_m1;
+            data_out2 <= data_m2;
+        end else begin
+            if (mode) begin
+                data_out1 <= data_m2;
+                data_out2 <= data_m1;
+            end else begin
+                data_out1 <= data_m1;
+                data_out2 <= data_m2;
+            end
+        end
+    end
+endmodule
+
+module rom_m1(clk, addr, data_out, en);
+    input clk, en;
+    input [2:0] addr;
+    output reg [7:0] data_out;
+    reg [7:0] mem [0:7];
+    initial begin
+        mem[0] = 8'b00000000; // 0
+        mem[1] = 8'b00000001; // 1
+        mem[2] = 8'b00000010; // 2
+        mem[3] = 8'b00000011; // 3
+        mem[4] = 8'b00000100; // 4
+        mem[5] = 8'b00000101; // 5
+        mem[6] = 8'b00000110; // 6
+        mem[7] = 8'b00000111; // 7
+    end
+    always @(posedge clk) begin
+        if (en)
+            data_out <= mem[addr];
+    end
+endmodule
+
+
+module rom_m2(clk, addr, data_out, en);
+    input clk, en;
+    input [2:0] addr;
+    output reg [7:0] data_out;
+    reg [7:0] mem [0:7];
+    initial begin
+        mem[0] = 8'b00001000; // 8
+        mem[1] = 8'b00001001; // 9
+        mem[2] = 8'b00001010; // 10
+        mem[3] = 8'b00001011; // 11
+        mem[4] = 8'b00001100; // 12
+        mem[5] = 8'b00001101; // 13
+        mem[6] = 8'b00001110; // 14
+        mem[7] = 8'b00001111; // 15
+    end
+    always @(posedge clk) begin
+        if (en)
+            data_out <= mem[addr];
+    end
+endmodule
