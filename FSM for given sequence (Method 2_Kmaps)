@@ -1,0 +1,42 @@
+//Draw state table 
+//A   B   C    D   ||    x    ||  A+  B+   C+   D+  
+//  A+  =   x'C' +  ABC+ xAD   +   xA'B'CD'
+//  B+   =   x'C'   +   B'C'   +   x'A'D   +   xAD    +   xABC
+//   C+   =  D +  x'A   +  xA'  +   A'B'C
+//   D+    = A'B'CD'   +   xA'CD'  +    x'ABC
+
+//USE ONLINE kMAP SOLVER TO SOLVE 5 VARIABLE KMAPS
+
+//2bec0263
+
+module dff(d, clk, rst, q, qbar);
+ input d, clk, rst;
+ output reg q;
+ output wire qbar;
+ always @(posedge clk) begin
+ if (rst)
+ q <= 0;
+ else
+ q <= d;
+ end
+ assign qbar = ~q;
+endmodule
+
+
+
+module taska(x, clk, rst, out);
+ input x, clk, rst;
+ output wire [3:0] out;
+ wire a, b, c, d;
+ wire abar, bbar, cbar, dbar;
+ wire [3:0] d_next;
+ assign d_next[0] = (~x & ~c) | (a & b & c) | (x & a & d) | (x & ~a & ~b & c & ~d);
+ assign d_next[1] = (~x & ~c) | (~b & ~c) | (~x & ~a & d) | (x & a & d) | (x & a & b & c);
+ assign d_next[2] = d | (~x & a) | (x & ~a) | (~a & ~b & c);
+ assign d_next[3] = (~a & ~b & c & ~d) | (x & ~a & c & ~d) | (~x & a & b & c);
+ dff dut1(d_next[0], clk, rst, a, abar);
+ dff dut2(d_next[1], clk, rst, b, bbar);
+ dff dut3(d_next[2], clk, rst, c, cbar);
+ dff dut4(d_next[3], clk, rst, d, dbar);
+ assign out = {a, b, c, d};
+endmodule
