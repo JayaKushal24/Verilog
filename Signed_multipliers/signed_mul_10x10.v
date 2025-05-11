@@ -19,11 +19,11 @@ module main(input signed [9:0] A,B, output signed [19:0]product);
  assign PP[i]=B[i]?(A_extended << i):20'b0;
  end
  endgenerate
- // Generate PP[9]
+ 
  assign PP[9]=A_extended << 9;
- // Invert PP[9] if B[9] is 1
+ 
  assign PP9_inverted = PP[9] ^ {20{B[9]}};
- // Sum all partial products using ripple carry adders
+
  rca_20 adder0(.a(PP[0]),.b(PP[1]),.cin(1'b0),.sum(sum_temp[0]),.cout(cout_temp));
  rca_20 adder1(.a(sum_temp[0]),.b(PP[2]),.cin(1'b0),.sum(sum_temp[1]),.cout(cout_temp));
  rca_20 adder2(.a(sum_temp[1]),.b(PP[3]),.cin(1'b0),.sum(sum_temp[2]),.cout(cout_temp));
